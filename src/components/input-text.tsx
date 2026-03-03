@@ -21,7 +21,8 @@ export const inputTextInputVariants = cva(`
     `, {
     variants: {
         variant: {
-            default: "text-gray-400"
+            default: "text-gray-400",
+            filled: "text-gray-200"
         }
     },
     defaultVariants: {
@@ -35,10 +36,14 @@ interface InputTextProps extends React.ComponentProps<"input"> {
 
 export default function InputText({
     className,
+    value,
     icon,
     ...props
 
 }: InputTextProps) {
+
+    const isFilled = Boolean(value);
+
     return (
         <div className={inpuTextVariants(({ className }))}>
             <Icon
@@ -46,7 +51,10 @@ export default function InputText({
             />
             <input
                 type="text"
-                className={inputTextInputVariants({ className })}
+                className={inputTextInputVariants({
+                    variant: isFilled ? "filled" : "default",
+                    className
+                })}
                 {...props}
             />
         </div>

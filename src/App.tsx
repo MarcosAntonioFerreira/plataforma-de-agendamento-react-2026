@@ -5,9 +5,10 @@ import Button from "./components/button";
 import InputChekbox from "./components/input-checkbox";
 import ButtonIcon from "./components/button-icon";
 import InputText from "./components/input-text";
+import { useState } from "react";
 
 export default function App() {
-
+  const [filledName, setFilledName] = useState("");
   return (
     <>
       <Text variant="title-lg-bold">
@@ -38,6 +39,8 @@ export default function App() {
         icon={CalendarBlank}
         placeholder="Nome do cliente"
         className="focus:outline-none"
+        value={filledName}
+        onChange={(e) => setFilledName(e.target.value)}
       />
     </>
 
