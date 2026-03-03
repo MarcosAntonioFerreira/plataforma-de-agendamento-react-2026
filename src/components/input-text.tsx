@@ -7,7 +7,7 @@ export const inpuTextVariants = cva(`
     `, {
     variants: {
         variant: {
-            primary: "border-gray-500 border py-3 px-3"
+            primary: "border-gray-500 border py-3 px-3 has-focus:border-yellow"
         }
     },
     defaultVariants: {
