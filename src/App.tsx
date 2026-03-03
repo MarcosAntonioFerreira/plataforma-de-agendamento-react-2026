@@ -5,10 +5,10 @@ import Button from "./components/button";
 import InputChekbox from "./components/input-checkbox";
 import ButtonIcon from "./components/button-icon";
 import InputText from "./components/input-text";
-import { useState } from "react";
+import DropDownCalendar from "./components/dropdown-calendar";
 
 export default function App() {
-  const [filledName, setFilledName] = useState("");
+
   return (
     <>
       <Text variant="title-lg-bold">
@@ -27,6 +27,8 @@ export default function App() {
         disabled
         onClick={() => alert("teste")}
       >Teste</Button>
+      <DropDownCalendar
+      />
       <InputChekbox>
         15:00
       </InputChekbox>
@@ -39,9 +41,14 @@ export default function App() {
         icon={CalendarBlank}
         placeholder="Nome do cliente"
         className="focus:outline-none"
-        value={filledName}
-        onChange={(e) => setFilledName(e.target.value)}
       />
+      <InputText
+        icon={CalendarBlank}
+        mode="calendar"
+        placeholder="Nome do cliente"
+        className="focus:outline-none"
+      />
+
     </>
 
   )

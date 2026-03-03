@@ -1,15 +1,16 @@
 import { cva, type VariantProps } from "class-variance-authority";
 import React from "react";
 
-export const iconVariants = cva(`fill-yellow`, {
+export const iconVariants = cva(``, {
     variants: {
         variant: {
-            size_input: "w-5 h-5",
-            size_button: "w-6 h-7"
+            icon_input: "w-5 h-5 fill-yellow",
+            icon_button: "w-6 h-7 fill-yellow",
+            icon_dropdown: "w-4 h-4 fill-gray-300"
         }
     },
     defaultVariants: {
-        variant: "size_input"
+        variant: "icon_input"
     }
 })
 
