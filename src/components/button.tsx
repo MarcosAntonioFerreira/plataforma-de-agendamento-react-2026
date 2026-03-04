@@ -9,7 +9,7 @@ export const buttonVariants = cva(`
     `, {
     variants: {
         variant: {
-            primary: "bg-yellow hover:border-yellow-light border-2",
+            primary: "bg-yellow hover:border-yellow-light hover:border-2",
             secondary: "bg-gray-600 border-gray-500 border"
         },
         size: {
