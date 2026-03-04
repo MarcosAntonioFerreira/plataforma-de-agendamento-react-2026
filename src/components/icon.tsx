@@ -6,7 +6,7 @@ export const iconVariants = cva(``, {
         variant: {
             icon_input: "w-5 h-5 fill-yellow",
             icon_button: "w-6 h-7 fill-yellow",
-            icon_dropdown: "w-4 h-4 fill-gray-300"
+            icon_dropdown: "w-4 h-4 fill-gray-300",
         }
     },
     defaultVariants: {
@@ -21,10 +21,11 @@ interface IconProps extends React.ComponentProps<"svg">,
 
 export default function Icon({
     svg: SvgComponent,
+    variant,
     className,
     ...props
 }: IconProps) {
     return (
-        <SvgComponent className={iconVariants({ className })} {...props} />
+        <SvgComponent className={iconVariants({ className, variant })} {...props} />
     )
 }

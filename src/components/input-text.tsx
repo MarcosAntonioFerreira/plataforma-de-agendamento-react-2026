@@ -5,7 +5,7 @@ import CaretDown from "../assets/icons/CaretDown.svg?react"
 import DropDownCalendar from "./dropdown-calendar";
 
 export const inpuTextVariants = cva(`
-    flex items-center  rounded-lg group gap-2 
+    flex flex-row items-center  rounded-lg group gap-2 
     `, {
     variants: {
         variant: {
@@ -51,21 +51,21 @@ export default function InputText({
     const [filledValue, setFilledValue] = useState("");
     const [openPopUpCaledar, setOpenPopUpCalendar] = useState(false);
 
-    const containerInput= useRef<HTMLDivElement>(null);
+    const containerInput = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        function handleClickOutside(event: MouseEvent){
-            if(
+        function handleClickOutside(event: MouseEvent) {
+            if (
                 containerInput.current &&
                 !containerInput.current.contains(event.target as Node)
-            ){
+            ) {
                 setOpenPopUpCalendar(false);
             }
         }
 
-        document.addEventListener("mousedown",handleClickOutside);
+        document.addEventListener("mousedown", handleClickOutside);
 
-        return() => {
+        return () => {
             document.removeEventListener("mousedown", handleClickOutside);
         };
     }, []);
@@ -78,7 +78,7 @@ export default function InputText({
 
     return (
         <div ref={containerInput}>
-            <div  className={inpuTextVariants(({ className }))}>
+            <div className={inpuTextVariants(({ className }))}>
                 <Icon
                     svg={icon}
                 />
@@ -104,7 +104,7 @@ export default function InputText({
                     {...props}
                 />
                 {
-                    mode === "calendar" && <Icon svg={CaretDown} />
+                    mode === "calendar" && <Icon svg={CaretDown} variant="icon_dropdown" />
                 }
             </div>
             {
