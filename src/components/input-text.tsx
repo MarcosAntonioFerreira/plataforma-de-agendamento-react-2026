@@ -1,8 +1,9 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { Children, useEffect, useRef, useState } from "react";
 import Icon from "./icon";
 import { cva } from "class-variance-authority";
 import CaretDown from "../assets/icons/CaretDown.svg?react"
 import DropDownCalendar from "./dropdown-calendar";
+import Text from "./text";
 
 export const inpuTextVariants = cva(`
     flex flex-row items-center  rounded-lg group gap-2 
@@ -19,12 +20,12 @@ export const inpuTextVariants = cva(`
 
 
 export const inputTextInputVariants = cva(`
-    focus:outline-none
+    focus:outline-none w-full
     `, {
     variants: {
         variant: {
             default: "text-gray-400",
-            filled: "text-gray-200"
+            filled: "text-gray-200",
         }
     },
     defaultVariants: {
@@ -40,6 +41,7 @@ interface InputTextProps extends React.ComponentProps<"input"> {
 
 export default function InputText({
     className,
+    title,
     value,
     icon,
     mode = "text",
@@ -78,7 +80,10 @@ export default function InputText({
 
     return (
         <div ref={containerInput}>
-            <div className={inpuTextVariants(({ className }))}>
+            <Text variant={"title-md-bold"} className="text-gray-200">
+                {title}
+            </Text>
+            <label className={inpuTextVariants(({ className: "mt-2" }))}>
                 <Icon
                     svg={icon}
                 />
@@ -106,7 +111,7 @@ export default function InputText({
                 {
                     mode === "calendar" && <Icon svg={CaretDown} variant="icon_dropdown" />
                 }
-            </div>
+            </label>
             {
                 mode === "calendar" && openPopUpCaledar && (
                     <DropDownCalendar

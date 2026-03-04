@@ -1,5 +1,6 @@
 import Container from "../components/container";
 import Text from "../components/text";
+import FormSchedule from "./form-schedule";
 
 export default function HeaderLeft() {
     return (
@@ -10,6 +11,8 @@ export default function HeaderLeft() {
             <Text variant={"text-sm-regular"} className="text-gray-300 mt-4 leading-5" >
                 Selecione data, horário e informe o nome do cliente para criar o agendamento
             </Text>
+            <FormSchedule />
+            
         </Container>
     )
 }

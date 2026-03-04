@@ -1,10 +1,9 @@
-import React, { useState } from "react";
 import { DayPicker } from "react-day-picker";
 import "react-day-picker/style.css";
 
 interface DropDownCalendarProps{
   selected?: Date;
-  onSelect?: (date: Date) => void;
+  onSelect: (date: Date) => void;
 }
 
 export default function DropDownCalendar({
