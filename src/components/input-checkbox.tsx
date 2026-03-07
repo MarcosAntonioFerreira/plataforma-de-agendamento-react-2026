@@ -44,6 +44,7 @@ export const inputCheckboxTextVariants = cva(``, {
 interface InputCheckboxProps extends React.ComponentProps<"input"> {
     variant?: undefined
     size?: undefined
+
 }
 
 

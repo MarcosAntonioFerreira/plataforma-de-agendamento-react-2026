@@ -11,18 +11,18 @@ export default function TimeList({
 }: TimeListProps) {
     const itemTimes = [
         [
-            { time: "09:00", disabled: false },
-            { time: "10:00", disabled: false },
-            { time: "11:00", disabled: true },
-            { time: "12:00", disabled: false },
+            { time: "09:00", disabled: false  },
+            { time: "10:00", disabled: false  },
+            { time: "11:00", disabled: true   },
+            { time: "12:00", disabled: false  },
 
         ],
         [
             { time: "13:00", disabled: false },
             { time: "14:00", disabled: false },
-            { time: "15:00", disabled: true },
+            { time: "15:00", disabled: true  },
             { time: "16:00", disabled: false },
-            { time: "17:00", disabled: true },
+            { time: "17:00", disabled: true  },
             { time: "18:00", disabled: false },
         ],
         [
@@ -46,7 +46,7 @@ export default function TimeList({
                     </Text>
                     <div className="flex gap-3 flex-wrap">
                         {row.map((item) => (
-                            <InputChekbox key={item.time} >
+                            <InputChekbox key={item.time}>
                                 {item.time}
                             </InputChekbox>
                         ))}

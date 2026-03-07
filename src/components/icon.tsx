@@ -7,6 +7,7 @@ export const iconVariants = cva(``, {
             icon_input: "w-5 h-5 fill-yellow",
             icon_button: "w-6 h-7 fill-yellow",
             icon_dropdown: "w-4 h-4 fill-gray-300",
+            icon_list: "w-5 h-5 fill-yellow-dark"
         }
     },
     defaultVariants: {
