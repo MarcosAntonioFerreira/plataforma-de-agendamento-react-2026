@@ -6,6 +6,6 @@ export interface Schedule {
     nameClient: string;
     dateSchedule: string;
     timeSchedule: string;
-    periodSchedule?: string;
+    periodSchedule?: number;
     state: 'created';
 }

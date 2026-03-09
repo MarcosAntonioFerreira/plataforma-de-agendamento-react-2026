@@ -11,6 +11,7 @@ export default function SheduleList() {
 
 
     return (
+        
         <div className="flex flex-col gap-3">
             <div>
                 <HeaderItemSchedule
@@ -20,7 +21,7 @@ export default function SheduleList() {
                 />
                 <section className="border-2 border-gray-600 rounded-br-lg rounded-bl-lg flex flex-col justify-between items-center gap-3 px-5 py-3 -mt-0.5" >
                     {schedules.map((schedule) =>
-                        schedule.periodSchedule === "0" && (
+                        schedule.periodSchedule == 0 && (
                             <ScheduleItem key={schedule.id} schedule={schedule} />
                         ))}
                 </section>
@@ -33,7 +34,7 @@ export default function SheduleList() {
                 />
                 <section className="border-2 border-gray-600 rounded-br-lg rounded-bl-lg flex flex-col justify-between items-center gap-3 px-5 py-3 -mt-0.5" >
                     {schedules.map((schedule) =>
-                        schedule.periodSchedule === "1" && (
+                        schedule.periodSchedule == 1 && (
                             <ScheduleItem key={schedule.id} schedule={schedule} />
                         ))}
                 </section>
@@ -46,7 +47,7 @@ export default function SheduleList() {
                 />
                 <section className="border-2 border-gray-600 rounded-br-lg rounded-bl-lg flex flex-col justify-between items-center gap-3 px-5 py-3 -mt-0.5" >
                     {schedules.map((schedule) =>
-                        schedule.periodSchedule === "2" && (
+                        schedule.periodSchedule == 2 && (
                             <ScheduleItem key={schedule.id} schedule={schedule} />
                         ))}
                 </section>

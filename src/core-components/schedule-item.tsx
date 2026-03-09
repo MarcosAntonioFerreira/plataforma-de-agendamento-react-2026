@@ -21,12 +21,12 @@ export default function ScheduleItem({ schedule }: ScheduleItemProps) {
 
 
     return (
-        <div className="flex flex-row w-full">
+        <div className="flex flex-row w-full hover:bg-gray-700 hover: rounded-2xl">
             <div className="w-full flex justify-start gap-3">
                 <Text className="text-gray-200" variant={"title-md-bold"} >{schedule?.timeSchedule}</Text>
                 <Text className="text-gray-200" variant={"text-md-regular"} >{schedule?.nameClient}</Text>
             </div>
-            <ButtonIcon onClick={handleDeleteSchedule} icon={Trash} />
+            <ButtonIcon onClick={handleDeleteSchedule} icon={Trash}  />
 
         </div>
     );

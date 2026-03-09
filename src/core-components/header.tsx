@@ -1,16 +1,23 @@
 
 import Text from "../components/text";
 
+interface HeaderProps{
+    title: String;
+    subTitle?: String;
+}
 
-export default function HeaderLeft() {
+export default function Header({
+    title,
+    subTitle
+} : HeaderProps) {
     return (
-        <>
+        <div className="flex flex-col">
             <Text variant={"title-lg-bold"} className="text-gray-100 leading-8" >
-                Agende um atendimento
+                {title}
             </Text>
             <Text variant={"text-sm-regular"} className="text-gray-300 mt-4 leading-5" >
-                Selecione data, horário e informe o nome do cliente para criar o agendamento
+                {subTitle}
             </Text>
-        </>
+        </div>
     )
 }
