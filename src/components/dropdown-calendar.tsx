@@ -1,7 +1,7 @@
 import { DayPicker } from "react-day-picker";
 import "react-day-picker/style.css";
 
-interface DropDownCalendarProps{
+interface DropDownCalendarProps {
   selected?: Date;
   onSelect: (date: Date) => void;
 }
@@ -9,17 +9,17 @@ interface DropDownCalendarProps{
 export default function DropDownCalendar({
   selected,
   onSelect,
-}:DropDownCalendarProps){
-    
-     return (
-    
+}: DropDownCalendarProps) {
+
+  return (
+
     <DayPicker
       animate
       mode="single"
       className="text-gray-100"
       selected={selected}
-      onSelect={(date)=> {
-        if (date){
+      onSelect={(date) => {
+        if (date) {
           onSelect(date);
         }
       }}

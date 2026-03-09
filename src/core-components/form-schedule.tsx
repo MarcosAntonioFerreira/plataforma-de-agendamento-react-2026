@@ -8,21 +8,44 @@ import useSchedule from "../hooks/use-schedule";
 
 export default function FormSchedule() {
     const { schedules } = useSchedules();
-        const { prepareSchedule } = useSchedule();
-    
-        console.log(schedules);
-    
-    
-        function handleNewSchedule() {
-            prepareSchedule();
+    const { saveSchedule } = useSchedule();
+
+    console.log(schedules);
+
+
+    function handleSaveSchedule(e: React.FormEvent<HTMLFormElement>) {
+        e.preventDefault();
+
+        const formData = new FormData(e.currentTarget);
+
+        const nameClient = formData.get("nameClient") as string;
+        const dateSchedule = formData.get("dateSchedule") as string;
+        const timeSchedule = formData.get("timeSchedule") as string;
+        const periodSchedule = formData.get("periodSchedule") as string;
+
+        if (!nameClient || !dateSchedule || !timeSchedule) {
+            alert("Preencha todos os campos");
+            return;
         }
+
+        saveSchedule({
+            nameClient,
+            dateSchedule,
+            timeSchedule,
+            periodSchedule // se quiser calcular depois
+        });
+
+        e.currentTarget.reset();
+
+    }
+
+
     return (
-        <form className="gap-8 flex flex-col mt-6">
-            <InputText  title="Data:" icon={CalendarBlank} mode="calendar" placeholder="Selecione uma data" />
-            <TimeList title="Horários:" />
-            <InputText title="Cliente:" icon={UserSquare} mode="text"  placeholder="Nome do cliente" />
-            <Button onClick={handleNewSchedule}>AGENDAR</Button>
+        <form onSubmit={handleSaveSchedule} className="gap-8 flex flex-col mt-6">
+            <InputText title="Data:" icon={CalendarBlank} name="dateSchedule" mode="calendar" placeholder="Selecione uma data" />
+            <TimeList title="Horários:" name="timeSchedule" />
+            <InputText title="Cliente:" icon={UserSquare} name="nameClient" mode="text" placeholder="Nome do cliente" />
+            <Button type="submit" >AGENDAR</Button>
         </form>
-        )
-        }
-    
+    )
+}
