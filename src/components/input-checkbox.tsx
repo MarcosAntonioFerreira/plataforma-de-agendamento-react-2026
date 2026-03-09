@@ -1,4 +1,4 @@
-import { cva, type VariantProps } from "class-variance-authority";
+import { cva } from "class-variance-authority";
 import Text from "./text";
 import React from "react";
 
@@ -44,14 +44,13 @@ export const inputCheckboxTextVariants = cva(``, {
 interface InputCheckboxProps extends React.ComponentProps<"input"> {
     variant?: undefined;
     size?: undefined;
-    periodSchedule: string;
+    disabled?:boolean;
 
 }
 
 
 export default function InputChekbox({
     variant,
-    periodSchedule,
     size,
     disabled,
     className,
@@ -67,8 +66,7 @@ export default function InputChekbox({
                 disabled
             })
         }>
-            <input type="radio" {...props} className="hidden peer sr-only" />
-            <input type="hidden" name="periodSchedule" value={periodSchedule} />
+            <input type="radio" {...props} className="hidden peer sr-only" autoComplete="off" disabled={disabled}/>
             <Text
                 as="span"
                 variant={"text-md-regular"}

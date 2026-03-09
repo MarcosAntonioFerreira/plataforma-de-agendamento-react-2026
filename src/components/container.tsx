@@ -6,7 +6,8 @@ export const containerVariants = cva(`
     `, {
     variants: {
         variant: {
-            left_content: "max-w-[32.5rem] px-20 py-20 m-3 rounded-xl bg-gray-700"
+            left_content: "max-w-[32.5rem] px-20 py-20  rounded-xl bg-gray-700",
+            right_content: "h-full w-full pl-28 pt-20 pr-28"
         }
     },
     defaultVariants: {

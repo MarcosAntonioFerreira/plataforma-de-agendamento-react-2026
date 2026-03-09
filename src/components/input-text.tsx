@@ -1,4 +1,4 @@
-import React, { Children, useEffect, useRef, useState } from "react";
+import React, {  useEffect, useRef, useState } from "react";
 import Icon from "./icon";
 import { cva } from "class-variance-authority";
 import CaretDown from "../assets/icons/CaretDown.svg?react"
@@ -107,6 +107,7 @@ export default function InputText({
                         className
                     })}
                     {...props}
+                    autoComplete="off"
                 />
                 {
                     mode === "calendar" && <Icon svg={CaretDown} variant="icon_dropdown" />

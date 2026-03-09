@@ -9,7 +9,7 @@ export const buttonIconIconVariants = cva(`flex items-center justify-center curs
             primary: "fill-yellow hover:fill-yellow-dark"
         },
         size: {
-            sm: "w-8 h-8"
+            sm: "w-4 h-4"
         }
     },
     defaultVariants: {
