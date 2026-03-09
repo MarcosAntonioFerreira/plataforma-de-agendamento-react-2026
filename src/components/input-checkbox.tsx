@@ -42,14 +42,16 @@ export const inputCheckboxTextVariants = cva(``, {
 })
 
 interface InputCheckboxProps extends React.ComponentProps<"input"> {
-    variant?: undefined
-    size?: undefined
+    variant?: undefined;
+    size?: undefined;
+    periodSchedule: string;
 
 }
 
 
 export default function InputChekbox({
     variant,
+    periodSchedule,
     size,
     disabled,
     className,
@@ -65,7 +67,8 @@ export default function InputChekbox({
                 disabled
             })
         }>
-            <input type="checkbox" {...props} className="hidden peer sr-only" />
+            <input type="radio" {...props} className="hidden peer sr-only" />
+            <input type="hidden" name="periodSchedule" value={periodSchedule} />
             <Text
                 as="span"
                 variant={"text-md-regular"}
