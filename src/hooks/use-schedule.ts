@@ -23,7 +23,10 @@ export default function useSchedule() {
     function getUnavailableTimes(date: string) {
 
         console.log("date recebida:", date);
-        console.log("todos schedules:", schedules);
+
+        schedules.forEach((s) => {
+            console.log("comparando:", s.dateSchedule, "com", date);
+        });
 
         return schedules
             .filter((s) => s.dateSchedule === date)
