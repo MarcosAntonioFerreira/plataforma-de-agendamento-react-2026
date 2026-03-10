@@ -1,4 +1,4 @@
-import React, {  useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Icon from "./icon";
 import { cva } from "class-variance-authority";
 import CaretDown from "../assets/icons/CaretDown.svg?react"
@@ -37,10 +37,12 @@ export const inputTextInputVariants = cva(`
 interface InputTextProps extends React.ComponentProps<"input"> {
     icon: React.ComponentProps<typeof Icon>["svg"];
     mode?: "text" | "calendar";
+    setDateSchedule?: (date: string) => void;
 }
 
 export default function InputText({
     className,
+    setDateSchedule,
     title,
     value,
     icon,
@@ -73,8 +75,14 @@ export default function InputText({
     }, []);
 
     function handleSelect(date: Date) {
+
+        const formattedDate = date.toLocaleDateString("pt-BR");
+
         setSelectedDate(date);
-        setFilledValue(date.toLocaleDateString("pt-BR"));
+        setFilledValue(formattedDate);
+
+        setDateSchedule?.(formattedDate);
+
         setOpenPopUpCalendar(false);
     }
 
@@ -111,6 +119,11 @@ export default function InputText({
                 />
                 {
                     mode === "calendar" && <Icon svg={CaretDown} variant="icon_dropdown" />
+                }
+                {
+                    /*
+                    mode === "calendar" && <input type="hidden" value={selectDate} />
+                */
                 }
             </label>
             {
